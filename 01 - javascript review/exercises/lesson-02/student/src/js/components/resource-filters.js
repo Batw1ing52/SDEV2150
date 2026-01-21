@@ -1,4 +1,6 @@
-<aside class="col-12 col-lg-4">
+const template = document.createElement("template");
+template.innerHTML =
+`<aside class="col-12 col-lg-4">
   <div class="card">
     <div class="card-header">
       <strong>Filters</strong>
@@ -41,4 +43,14 @@
       </form>
     </div>
   </div>
-</aside>
+</aside>`
+
+class ResourceFilter extends HTMLElement {
+    constructor() {
+    super()
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+  }
+}
+
+customElements.define('resource-filter', ResourceFilter);

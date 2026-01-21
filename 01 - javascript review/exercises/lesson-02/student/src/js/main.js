@@ -19,7 +19,6 @@ import './components/resource-details.js';
 // --------------------------------------------------
 // Once your component files exist and are imported above,
 // update src/index.html so it uses:
-//
 // <resource-header></resource-header>
 // <div class="row g-3">
 //   <resource-filters class="col-12 col-lg-4"></resource-filters>
