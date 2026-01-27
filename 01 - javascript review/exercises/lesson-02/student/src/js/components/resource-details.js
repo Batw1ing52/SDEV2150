@@ -1,6 +1,6 @@
 const template = document.createElement("template");
 template.innerHTML =
-`<section class="col-12 col-lg-4">
+    `<section class="col-12 col-lg-4">
     <div class="card h-100">
         <div class="card-header">
             <strong>Details</strong>
@@ -34,10 +34,10 @@ template.innerHTML =
 
 class ResourceDetails extends HTMLElement {
     constructor() {
-    super()
-    this.attachShadow({mode: 'open'})
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
-  }
+      super();  // call the constructor of the base/parent class, i.e. HTMLElement
+      this.attachShadow({ mode: 'open' })
+      this.shadowRoot.appendChild(template.content.cloneNode(true))
+    }
 }
 
 customElements.define('resource-details', ResourceDetails);

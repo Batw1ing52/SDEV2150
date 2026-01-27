@@ -49,7 +49,7 @@ template.innerHTML =
 
 class ResourceResults extends HTMLElement {
   constructor() {
-    super()
+    super();  // call the constructor of the base/parent class, i.e. HTMLElement
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
