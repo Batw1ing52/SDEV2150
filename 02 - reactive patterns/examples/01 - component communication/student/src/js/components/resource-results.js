@@ -19,7 +19,6 @@ class ResourceResults extends HTMLElement {
   // TODO: Create a private field for results data
   #results = [];
 
-  
   constructor() {
     super();
     // TODO: Bind the handleResultClick method to this instance
