@@ -65,17 +65,12 @@ class ResourceResults extends HTMLElement {
 
   connectedCallback() {
     // TODO: Add a click event listener to handle result selection
-    
     this.render();
   }
 
   // TODO: Clean up event listener in disconnectedCallback
-
-  
-
   render() {
     // TODO: Update to render from the private results field, if it's empty, show "No results found" message
-    
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
