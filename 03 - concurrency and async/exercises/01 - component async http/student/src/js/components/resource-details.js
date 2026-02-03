@@ -1,8 +1,4 @@
-// Here, we'll simply display data - when we're finished writing it, note how it contains *no* logic
-// related to listening for / handling incoming events, etc. -- its job is ONLY to display stored data if that data exists!
-
 const template = document.createElement('template');
-// TODO: Update the template to support dynamic resource details
 template.innerHTML = `
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <section class="h-100">
@@ -10,10 +6,10 @@ template.innerHTML = `
       <div class="card-header">
         <strong>Details</strong>
       </div>
+      <!-- Details content will be injected here -->
+      <slot></slot>
 
-      <!-- details will be injected here, by selecting for <slot> element and appending child nodes -->
-      <div class="card-body"></div>
-
+      <!-- Action buttons may be dealt with in a future example -->
       <div class="card-footer d-flex gap-2">
         <button class="btn btn-outline-secondary" type="button">Copy email</button>
         <button class="btn btn-outline-primary" type="button">Open map</button>
@@ -22,7 +18,6 @@ template.innerHTML = `
   </section>`;
 
 class ResourceDetails extends HTMLElement {
-  // TODO: Create private field for resource data
   #resource = null;
 
   constructor() {
@@ -34,20 +29,15 @@ class ResourceDetails extends HTMLElement {
     this.render();
   }
 
-  // TODO: Implement setter for resource data, remember to render
   set resource(data) {
     this.#resource = data;
-    this.render()
+    this.render();
   }
 
   render() {
-    // TODO: Render resource details if available
-      this.shadowRoot.innerHTML = '';  // clear container before rendering so we don't double up its contents
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
-
     if (this.#resource) {
-      // render out content if data exists
       const detailsContainer = document.createElement('div');
+      detailsContainer.classList.add('card-body');
 
       detailsContainer.innerHTML = `
         <h2 class="h5">${this.#resource.title}</h2>
@@ -68,16 +58,16 @@ class ResourceDetails extends HTMLElement {
         </dl>
       `;
 
-      this.shadowRoot.querySelector('.card-body').appendChild(detailsContainer);
-
+      this.shadowRoot.innerHTML = '';
+      this.shadowRoot.appendChild(template.content.cloneNode(true));
+      this.shadowRoot.querySelector('slot').appendChild(detailsContainer);
     } else {
-
-      // show default content otherwise
-      this.shadowRoot.querySelector('.card-body').innerHTML = `
-        <div class="list-group-item">
-          <p class="mb-0">Please select a result to view details.</p>
-        </div>`;
-
+      // If no resource is selected, just render the template
+      this.shadowRoot.innerHTML = '';
+      // TODO: Hide action buttons when no resource is selected
+      const content = template.content.cloneNode(true);
+      content.querySelector('.card-footer').classList.add('d-none');
+      this.shadowRoot.appendChild(content);
     }
   }
 }
