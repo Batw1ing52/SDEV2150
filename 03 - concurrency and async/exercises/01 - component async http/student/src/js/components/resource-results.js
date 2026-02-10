@@ -35,7 +35,9 @@ class ResourceResults extends HTMLElement {
   }
 
   // TODO: Stage 2: Observe the `source` attribute
-
+  // 1. static get observedAttributed() {} <- monitor properties that change
+  // 2. observedAttributeCallBack() {}     <- what happens when an observed attribute
+  // 3. an actual function for fetching the data
   set results(data) {
     this.#results = data;
     this.#filteredResults = [...data];
