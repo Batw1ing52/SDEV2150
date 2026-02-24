@@ -1,5 +1,5 @@
 // src/components/Header.jsx
-import Card from './ui/Card';
+import Card from './card';
 
 export default function Header({ tagline }) {
   return (

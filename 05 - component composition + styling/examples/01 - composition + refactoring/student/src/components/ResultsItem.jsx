@@ -1,4 +1,4 @@
-import Card from './ui/Card';
+import Card from './card';
 
 export default function ResultsItem({ title, category, summary, location, children }) {
   return (

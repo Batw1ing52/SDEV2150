@@ -1,5 +1,5 @@
 // src/components/Results.jsx
-import Card from './ui/Card';
+import Card from './card';
 
 import ResultsItem from './ResultsItem';
 

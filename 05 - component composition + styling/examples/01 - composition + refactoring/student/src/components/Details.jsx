@@ -1,4 +1,4 @@
-import Card from './ui/Card';
+import Card from './card';
 
 // src/components/Details.jsx
 export default function Details() {

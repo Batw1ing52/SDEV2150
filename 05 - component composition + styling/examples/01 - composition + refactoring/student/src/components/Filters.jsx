@@ -1,5 +1,5 @@
 // src/components/Filters.jsx
-import Card from './ui/Card';
+import Card from './card';
 
 export default function Filters() {
   return (
