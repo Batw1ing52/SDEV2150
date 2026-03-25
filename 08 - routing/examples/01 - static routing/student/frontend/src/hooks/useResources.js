@@ -11,8 +11,8 @@ export function useResources() {
     setIsLoading(true);
     setError(null);
     
-    // delay for demo purposes
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // force a delay using a Promise timeout (this one is 2 seconds)
+    await new Promise((resolve) => setTimeout(resolve, 350));
     
     try {
       const res = await fetch(`${API_BASE_URL}/resources`, { signal });
