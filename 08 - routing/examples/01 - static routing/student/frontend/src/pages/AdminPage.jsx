@@ -106,7 +106,7 @@ export default function AdminPage() {
                   className="w-full rounded border border-gray-300 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"
                   placeholder="Resource title"
                   value={formData.title}
-                  onChange={(e) => setFormData({...formData, title: event.target.value})}
+                  onChange={(e) => setFormData({...formData, title: e.target.value})}
                 />
               </div>
 
@@ -119,7 +119,7 @@ export default function AdminPage() {
                   className="w-full rounded border border-gray-300 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"
                   placeholder="Resource category"
                   value={formData.category}
-                  onChange={(e) => setFormData({...formData, category: event.target.value})}
+                  onChange={(e) => setFormData({...formData, category: e.target.value})}
                 >
                   {['Academic', 'Wellness', 'Financial', 'Tech'].map(
                     (label) => { 
@@ -139,7 +139,7 @@ export default function AdminPage() {
                   className="w-full rounded border border-gray-300 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"
                   placeholder="Resource location"
                   value={formData.location}
-                  onChange={(e) => setFormData({...formData, location: event.target.value})}
+                  onChange={(e) => setFormData({...formData, location: e.target.value})}
                 />
               </div>
 
@@ -153,7 +153,7 @@ export default function AdminPage() {
                   className="w-full rounded border border-gray-300 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"
                   placeholder="Resource hours (e.g. Mon-Fri 08:00-13:00)"
                   value={formData.hours}
-                  onChange={(e) => setFormData({...formData, hours: event.target.value})}
+                  onChange={(e) => setFormData({...formData, hours: e.target.value})}
                 />
               </div>
 
@@ -167,7 +167,7 @@ export default function AdminPage() {
                   className="w-full rounded border border-gray-300 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-200"
                   placeholder="Resource contact (e.g. email@nait.ca)"
                   value={formData.contact}
-                  onChange={(e) => setFormData({...formData, contact: event.target.value})}
+                  onChange={(e) => setFormData({...formData, contact: e.target.value})}
                 />
               </div>
 
@@ -181,7 +181,7 @@ export default function AdminPage() {
                     type="checkbox"
                     className="rounded border border-gray-300 text-sm"
                     checked={formData.virtual}
-                    onChange={(e) => setFormData({...formData, virtual: event.target.checked})}
+                    onChange={(e) => setFormData({...formData, virtual: e.target.checked})}
                   />
                 </div>
 
@@ -194,7 +194,7 @@ export default function AdminPage() {
                     type="checkbox"
                     className="rounded border border-gray-300 text-sm"
                     checked={formData.openNow}
-                    onChange={(e) => setFormData({...formData, openNow: event.target.checked})}
+                    onChange={(e) => setFormData({...formData, openNow: e.target.checked})}
                   />
                 </div>
               </div>
