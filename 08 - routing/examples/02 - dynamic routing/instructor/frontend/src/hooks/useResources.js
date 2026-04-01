@@ -61,6 +61,8 @@ export function useResources() {
         body: JSON.stringify(newResource),
       });
 
+      console.log(res)
+
       if (!res.ok) {
         throw new Error(`Request failed: ${res.status} ${res.statusText}`);
       }
