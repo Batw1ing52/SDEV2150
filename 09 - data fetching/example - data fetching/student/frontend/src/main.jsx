@@ -49,7 +49,7 @@ let router = createBrowserRouter(
       ]
     }
   ]
-)
+);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
