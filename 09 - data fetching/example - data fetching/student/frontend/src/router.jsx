@@ -1,21 +1,26 @@
-const API_BASE_URL = 'http://localhost:3000';
+import { fetchResources, fetchResourceById } from "./components/api/resources"; 
 
-export async function fetchResources() {
-  const res = await fetch(`${API_BASE_URL}/resources`);
-
-  if (!res.ok) {
-    throw new Error(`Could not load resources: ${res.status}`);
-  }
-
-  return res.json();
+export async function resourceDirectoryLoader() {
+  const resources = await fetchResources();
+  return { resources };
 }
 
-export async function fetchResourceById(resourceId) {
-  const res = await fetch(`${API_BASE_URL}/resources/${resourceId}`);
+export async function adminLoader({ params }) {
+  const resources = await fetchResources();
 
-  if (!res.ok) {
-    throw new Error(`Could not load resource: ${res.status}`);
+  if (!params.resourceId) {
+    return {
+      resources,
+      resourceId: null,
+      selectedResource: null,
+    };
   }
 
-  return res.json();
+  const selectedResource = await fetchResourceById(params.resourceId);
+
+  return {
+    resources,
+    resourceId: params.resourceId,
+    selectedResource,
+  };
 }

@@ -1,9 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router';
+import { createBrowserRouter, RouterProvider } from 'react-router';
+
+import { fetchResources, fetchResourceById .} from 'router';
 
 import App from './App.jsx';
 import ResourceDirectoryPage from './pages/ResourceDirectoryPage';
