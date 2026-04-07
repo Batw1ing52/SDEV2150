@@ -1,13 +1,22 @@
+// react
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router';
 
-import { fetchResources, fetchResourceById } from 'router';
+// react-router
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router';
 
+// our router functions
+import { resourceDirectoryLoader, adminLoader } from './router';
+
+// our components
 import App from './App.jsx';
 import ResourceDirectoryPage from './pages/ResourceDirectoryPage';
 import AdminPage from './pages/AdminPage';
 
+// styles
 import './index.css';
 
 let router = createBrowserRouter(
@@ -35,15 +44,18 @@ let router = createBrowserRouter(
       children: [
         {
           index: true,
-          Component: ResourceDirectoryPage
+          Component: ResourceDirectoryPage,
+          loader: resourceDirectoryLoader,
         },
         {
           path: "admin",
           Component: AdminPage,
+          loader: adminLoader,
         },
         {
           path: "admin/:resourceId",
           Component: AdminPage,
+          loader: adminLoader,
         },
       ]
     }
